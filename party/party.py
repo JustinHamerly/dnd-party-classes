@@ -28,6 +28,15 @@ class Member():
 
   all_members = []
 
+  @classmethod
+  def list_members(cls):
+    return cls.all_members
+
+
+  @classmethod
+  def clear_members(cls):
+    cls.all_members = []
+    return 'no more members'
 
   def __init__(self, name, race, role, main_action, side_action):
     self.name = name
@@ -35,5 +44,6 @@ class Member():
     self.role = role
     self.main_action = main_action
     self.side_action = side_action
+    Member.all_members.append(self)
 
   
