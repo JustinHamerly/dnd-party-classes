@@ -1,4 +1,7 @@
-from party.party import Party
+from party.party import Party, Member
+
+
+# PARTY CLASS TESTS
 
 
 def test_party_class_creation():
@@ -28,3 +31,49 @@ def test_party_class_clear():
   assert len(Party.list_parties()) == 0
 
 
+# MEMBER CLASS TESTS
+
+
+def test_member_class_creation():
+  new_member = Member('Justin', 'Elf', 'Ranger', 'Longbow', 'none')
+  assert new_member
+  assert new_member.name == 'Justin'
+  assert new_member.race == 'Elf'
+  assert new_member.role == 'Ranger'
+  assert new_member.main_action == 'Longbow'
+  assert new_member.side_action == 'none'
+
+
+def test_members_added_to_class_instances():
+  members = Member.list_members()
+  assert members
+  assert len(members) == 1
+
+
+def test_members_clear():
+  assert Member.clear_members() == 'no more members'
+  assert len(Member.list_members()) == 0
+
+
+# MEMBER INSTANCE TESTS
+ 
+
+def test_member_string_method():
+  new_member = Member('Justin', 'Elf', 'Ranger', 'Longbow', 'none')
+  string = str(new_member)
+  assert string == "My name is Justin and I am a Elf Ranger.  My main action is Longbow and my side action is none"
+
+
+def test_member_repr_method():
+  new_member = Member('Justin', 'Elf', 'Ranger', 'Longbow', 'none')
+  representation = repr(new_member)
+  assert representation == """
+      Instance of Member:
+        Name: Justin
+        Race: Elf
+        Class: Ranger
+        Main Action: Longbow
+        Side Action: none
+    """
+
+    
