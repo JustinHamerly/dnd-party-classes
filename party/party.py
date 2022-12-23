@@ -21,3 +21,19 @@ class Party:
   def clear_parties(cls):
     cls.parties = []
     return 'no more parties'
+
+
+class Member():
+
+
+  all_members = []
+
+
+  def __init__(self, name, race, role, main_action, side_action):
+    self.name = name
+    self.race = race
+    self.role = role
+    self.main_action = main_action
+    self.side_action = side_action
+
+  
